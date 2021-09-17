@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Open URL on Steam App</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<div id="url-container">
+			<input id="steam-url" placeholder="Your URL goes here" type="url">
+			<a id="open-url" href="" onclick="run()">Open on steam!</a>
+		</div>
+	</body>
+
+	<script>
+		const openButton = document.getElementById("open-url");
+
+		function run() {
+			const steamUrl = document.getElementById("steam-url").value;
+			const onSteam = `steam://openurl/${steamUrl}`;
+			console.log(onSteam);
+
+			openButton.setAttribute("href", onSteam);
+			openButton.style.display = "flex";
+			return true;
+		}
+	</script>
+</html>
+
+<style>
+	body {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		top: 50vh;
+		left: 50px;
+		right: 50px;
+	}
+
+	#url-container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 30px;
+	}
+
+	#url-container * {
+		height: 100%;
+	}
+
+	#steam-url {
+		width: 40%;
+		border-radius: 8px 0 0 8px;
+		border-color: #1b2838;
+		outline: none;
+		padding-left: 10px;
+	}
+
+	#open-url {
+		background-color: #1b2838;
+		color: #fff;
+		padding: 3px;
+		padding-right: 5px;
+		border-radius: 0 8px 8px 0;
+		text-decoration: none;
+		text-align: center;
+		line-height: 28px;
+	}
+</style>
